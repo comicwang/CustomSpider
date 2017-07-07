@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -38,19 +40,23 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnScan = new System.Windows.Forms.Button();
+            this.btnSpider = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtBasePath = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtRootUrl = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.clmDataType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.clmRegex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSaveType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.console = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -62,6 +68,7 @@
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,8 +111,8 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.AliceBlue;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.AliceBlue;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -118,8 +125,8 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightYellow;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightYellow;
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.Size = new System.Drawing.Size(835, 471);
             this.dataGridView2.TabIndex = 0;
@@ -150,16 +157,18 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnScan);
+            this.groupBox1.Controls.Add(this.btnSpider);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtBasePath);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtRootUrl);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -168,31 +177,62 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "爬虫策略";
             // 
-            // button1
+            // btnScan
             // 
-            this.button1.Location = new System.Drawing.Point(22, 321);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(284, 113);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "爬取";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnScan.Location = new System.Drawing.Point(229, 310);
+            this.btnScan.Name = "btnScan";
+            this.btnScan.Size = new System.Drawing.Size(75, 23);
+            this.btnScan.TabIndex = 6;
+            this.btnScan.Text = "浏览";
+            this.btnScan.UseVisualStyleBackColor = true;
+            this.btnScan.Click += new System.EventHandler(this.btnScan_Click);
+            // 
+            // btnSpider
+            // 
+            this.btnSpider.Location = new System.Drawing.Point(22, 349);
+            this.btnSpider.Name = "btnSpider";
+            this.btnSpider.Size = new System.Drawing.Size(284, 113);
+            this.btnSpider.TabIndex = 5;
+            this.btnSpider.Text = "爬取";
+            this.btnSpider.UseVisualStyleBackColor = true;
+            this.btnSpider.Click += new System.EventHandler(this.btnSpider_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Orange;
-            this.label3.Location = new System.Drawing.Point(241, 211);
+            this.label3.Location = new System.Drawing.Point(252, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 4;
             this.label3.Text = "0 - 无限制";
             // 
-            // textBox3
+            // txtBasePath
             // 
-            this.textBox3.Location = new System.Drawing.Point(85, 275);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(140, 21);
-            this.textBox3.TabIndex = 3;
+            this.txtBasePath.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.txtBasePath.Location = new System.Drawing.Point(85, 310);
+            this.txtBasePath.Name = "txtBasePath";
+            this.txtBasePath.Size = new System.Drawing.Size(140, 21);
+            this.txtBasePath.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 314);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "文件存储";
+            // 
+            // txtRootUrl
+            // 
+            this.txtRootUrl.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtRootUrl.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllUrl;
+            this.txtRootUrl.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.txtRootUrl.Location = new System.Drawing.Point(85, 275);
+            this.txtRootUrl.Name = "txtRootUrl";
+            this.txtRootUrl.Size = new System.Drawing.Size(219, 21);
+            this.txtRootUrl.TabIndex = 3;
             // 
             // label5
             // 
@@ -207,7 +247,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(85, 240);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(140, 21);
+            this.textBox2.Size = new System.Drawing.Size(219, 21);
             this.textBox2.TabIndex = 3;
             // 
             // label4
@@ -235,45 +275,66 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "爬取条数";
             // 
-            // dataGridView1
+            // panel1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 40);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(317, 150);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "类型";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "正则表达式";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "存储方式";
-            this.Column3.Name = "Column3";
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 17);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(317, 184);
+            this.panel1.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(138, 17);
+            this.label1.Location = new System.Drawing.Point(138, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "爬取内容";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmDataType,
+            this.clmRegex,
+            this.clmSaveType});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 20);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(317, 164);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // clmDataType
+            // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Transparent;
+            this.clmDataType.DefaultCellStyle = dataGridViewCellStyle7;
+            this.clmDataType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.clmDataType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clmDataType.HeaderText = "类型";
+            this.clmDataType.Name = "clmDataType";
+            this.clmDataType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmDataType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // clmRegex
+            // 
+            this.clmRegex.HeaderText = "正则表达式";
+            this.clmRegex.Name = "clmRegex";
+            // 
+            // clmSaveType
+            // 
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Transparent;
+            this.clmSaveType.DefaultCellStyle = dataGridViewCellStyle8;
+            this.clmSaveType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.clmSaveType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clmSaveType.HeaderText = "存储方式";
+            this.clmSaveType.Name = "clmSaveType";
+            this.clmSaveType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmSaveType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // console
             // 
@@ -288,13 +349,13 @@
             this.console.Size = new System.Drawing.Size(1162, 151);
             this.console.TabIndex = 0;
             // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1162, 626);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.ShowIcon = false;
             this.Text = "爬虫工具";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -309,6 +370,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -320,9 +383,6 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
@@ -332,12 +392,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnSpider;
+        private System.Windows.Forms.TextBox txtRootUrl;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox console;
+        private System.Windows.Forms.Button btnScan;
+        private System.Windows.Forms.TextBox txtBasePath;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewComboBoxColumn clmDataType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmRegex;
+        private System.Windows.Forms.DataGridViewComboBoxColumn clmSaveType;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
