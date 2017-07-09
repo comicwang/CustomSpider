@@ -378,7 +378,7 @@ namespace CustomSpider
         {
             lblTime.Text = DateTime.Now.ToString();
             if (_startTime != null)
-                lblWasteTime.Text = (DateTime.Now - _startTime.Value).ToString("hh:mm:ss");
+                lblWasteTime.Text = (DateTime.Now - _startTime.Value).ToString();
         }
 
         #endregion
