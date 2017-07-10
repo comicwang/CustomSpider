@@ -55,7 +55,7 @@ namespace CustomSpider.UI
                         MatchCollection matches = temp.Matches(content);
                         foreach (Match match in matches)
                         {
-                            ContentSaver.Save(baseForlder, Encoding.Default.GetBytes(match.Value), item.SaveType, Guid.NewGuid().ToString() + ".txt");
+                            ContentManger.Save(baseForlder, Encoding.Default.GetBytes(match.Value), item.SaveType, Guid.NewGuid().ToString() + ".txt");
                             _main.DownloadFileCount++;
                         }
                     }

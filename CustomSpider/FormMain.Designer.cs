@@ -35,10 +35,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -80,6 +76,10 @@
             this.labelItem6 = new DevComponents.DotNetBar.LabelItem();
             this.labelItem14 = new DevComponents.DotNetBar.LabelItem();
             this.tmShowNow = new System.Windows.Forms.Timer(this.components);
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -100,7 +100,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 26);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 25);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -112,7 +112,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.console);
             this.splitContainer1.Panel2.Controls.Add(this.bar2);
-            this.splitContainer1.Size = new System.Drawing.Size(1201, 616);
+            this.splitContainer1.Size = new System.Drawing.Size(1201, 617);
             this.splitContainer1.SplitterDistance = 463;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -156,34 +156,7 @@
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.Size = new System.Drawing.Size(863, 463);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 9.316055F;
-            this.Column4.HeaderText = "行数";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.FillWeight = 74.32313F;
-            this.Column5.HeaderText = "爬取网址";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.FillWeight = 11.63785F;
-            this.Column6.HeaderText = "爬取状态";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.FillWeight = 10.76577F;
-            this.Column7.HeaderText = "查看结果";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // groupBox1
             // 
@@ -345,14 +318,14 @@
             this.console.Multiline = true;
             this.console.Name = "console";
             this.console.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.console.Size = new System.Drawing.Size(1201, 129);
+            this.console.Size = new System.Drawing.Size(1201, 131);
             this.console.TabIndex = 0;
             // 
             // bar2
             // 
             this.bar2.AntiAlias = true;
             this.bar2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bar2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.bar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.bar2.IsMaximized = false;
             this.bar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.labelItem1,
@@ -370,9 +343,9 @@
             this.lblFileCount,
             this.lblTime,
             this.pbAll});
-            this.bar2.Location = new System.Drawing.Point(0, 129);
+            this.bar2.Location = new System.Drawing.Point(0, 131);
             this.bar2.Name = "bar2";
-            this.bar2.Size = new System.Drawing.Size(1201, 20);
+            this.bar2.Size = new System.Drawing.Size(1201, 19);
             this.bar2.Stretch = true;
             this.bar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar2.TabIndex = 1;
@@ -491,13 +464,13 @@
             // 
             this.bar1.AntiAlias = true;
             this.bar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bar1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.bar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.bar1.IsMaximized = false;
             this.bar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem1});
             this.bar1.Location = new System.Drawing.Point(0, 0);
             this.bar1.Name = "bar1";
-            this.bar1.Size = new System.Drawing.Size(1201, 26);
+            this.bar1.Size = new System.Drawing.Size(1201, 25);
             this.bar1.Stretch = true;
             this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2013;
             this.bar1.TabIndex = 1;
@@ -547,6 +520,36 @@
             this.tmShowNow.Interval = 1000;
             this.tmShowNow.Tick += new System.EventHandler(this.tmShowNow_Tick);
             // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 9.316055F;
+            this.Column4.HeaderText = "行数";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 74.32313F;
+            this.Column5.HeaderText = "爬取网址";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.FillWeight = 11.63785F;
+            this.Column6.HeaderText = "爬取状态";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.FillWeight = 10.76577F;
+            this.Column7.HeaderText = "查看结果";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -586,10 +589,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox console;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private DevComponents.DotNetBar.Bar bar1;
         private DevComponents.DotNetBar.ButtonItem buttonItem1;
         private DevComponents.DotNetBar.ButtonItem btnBaiduImage;
@@ -629,6 +628,10 @@
         private System.Windows.Forms.NumericUpDown txtNum;
         private System.Windows.Forms.NumericUpDown txtThreadNum;
         private System.Windows.Forms.Timer tmShowNow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewLinkColumn Column7;
     }
 }
 

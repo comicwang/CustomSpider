@@ -162,9 +162,6 @@ namespace CustomSpider
         {
             UrlManager.OneUrlAdded += UrlManager_OnUrlAdded;
             UrlManager.OneUrlPoped += UrlManager_OnUrlPoped;
-            UrlManager.BaseForlder = _baseForlder;
-            UrlManager.LimitedCount = _limitedCount;
-          
         }
 
         private void SetControlState(bool enable)
@@ -247,7 +244,9 @@ namespace CustomSpider
             MyConsole.AppendLine("开始爬取..");
 
             _startTime = DateTime.Now; //记录爬取初始时间
-
+            UrlManager.BaseForlder = _baseForlder;
+            UrlManager.LimitedCount = _limitedCount;
+          
             UrlManager.AddNewUrls(rootUrl[0],rootUrl);  //添加根地址
 
             //设置爬虫的线程个数
@@ -326,7 +325,7 @@ namespace CustomSpider
             else
             {
                 //文件存储
-                ContentSaver.Save(txtBasePath.Text, e.Result as byte[], SaveType.文件, Path.GetFileName(url));
+                ContentManger.Save(txtBasePath.Text, e.Result as byte[], SaveType.文件, Path.GetFileName(url));
                 _downloadFileCount++;
             }
             UpdateGridView(url, SpiderState.已完成);
@@ -382,5 +381,12 @@ namespace CustomSpider
         }
 
         #endregion
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex != Column7.Index)
+                return;
+            ContentManger.View(_baseForlder, SaveType.文件, Path.GetFileName(dataGridView2[1, e.RowIndex].Value.ToString()));
+        }
     }
 }
